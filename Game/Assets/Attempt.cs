@@ -9,16 +9,34 @@ public class Attempt : MonoBehaviour
 
     private Vector2 direction;
 
+    private SpriteRenderer mySpriteRenderer;
+    private Rigidbody2D myRigidBody;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         getinput();
+
+        if (direction == Vector2.left)
+        {
+
+            Debug.Log("veolcity: " + myRigidBody.velocity.x);
+            mySpriteRenderer.flipX = true;
+        }
+        else if(direction == Vector2.right)
+        {
+           
+            mySpriteRenderer.flipX = false;
+        }
+
         move();
     }
 

@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         if (direction == Vector2.left)
         {
 
-            Debug.Log("veolcity: " + myRigidBody.velocity.x);
+            //Debug.Log("veolcity: " + myRigidBody.velocity.x);
             mySpriteRenderer.flipX = true;
         }
         else if(direction == Vector2.right)

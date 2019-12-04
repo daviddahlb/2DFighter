@@ -38,6 +38,6 @@ public class Enemy : MonoBehaviour {
         Vector2 newUp = quat * Vector2.up;
         // newUp.Normalize();
         transform.up = newUp;
-        timeToChangeDirection = .77f;
+        timeToChangeDirection = 1.2f;
     }
 }

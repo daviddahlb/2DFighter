@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Attempt : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+
+    public float health;
+    public string current_level;
+    public string play_date;
 
     private Vector2 direction;
 
@@ -18,6 +23,22 @@ public class Attempt : MonoBehaviour
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
+
+        string is_loading = PlayerPrefs.GetString("loading");
+        if (is_loading == "true")
+        {
+            string json = File.ReadAllText("./saves/gamesave.json");
+
+            Save save = JsonUtility.FromJson<Save>(json);
+            direction.x += save.currentX;
+            move();
+            direction.y += save.currentY;
+            move();
+            Debug.Log(save.currentX);
+            Debug.Log("Loaded game from: " + save.gamedate);
+            PlayerPrefs.SetString("loading", "false");
+            PlayerPrefs.Save();
+        }
     }
 
     // Update is called once per frame
@@ -72,5 +93,24 @@ public class Attempt : MonoBehaviour
 
 
     }
+    public float getPositionX()
+    {
+        return direction.x;
+    }
 
+
+
+    public float getPositionY()
+    {
+        return direction.y;
+    }
+
+    public void setPositionX(float current_x)
+    {
+        direction.x = current_x;
+    }
+    public void setPositionY(float current_y)
+    {
+        direction.y = current_y;
+    }
 }

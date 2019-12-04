@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
         //if (File.Exists(Application.persistentDataPath + "/saves/gamesave.json"))
         if (File.Exists("./saves/gamesave.json"))
         {
-            Attempt player = new Attempt();
+            Player player = new Player();
 
             //string json = File.ReadAllText(Application.persistentDataPath + "/saves/gamesave.json");
             string json = File.ReadAllText("./saves/gamesave.json");

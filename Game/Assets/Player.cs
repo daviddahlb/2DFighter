@@ -23,13 +23,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        myRigidBody = GetComponent<Rigidbody2D>();
-
         string is_loading = PlayerPrefs.GetString("loading");
         if (is_loading == "true")
         {
-            string json = File.ReadAllText("./saves/gamesave.json");
+            string json = File.ReadAllText(Application.persistentDataPath + "/saves/gamesave.json");
 
             Save save = JsonUtility.FromJson<Save>(json);
             direction.x += save.currentX;
@@ -41,6 +38,10 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetString("loading", "false");
             PlayerPrefs.Save();
         }
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+
+       
     }
 
     // Update is called once per frame

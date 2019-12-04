@@ -4,10 +4,11 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
+   
     public void NewGame()
     {
         PlayerPrefs.SetString("loading", "false");
@@ -25,13 +26,14 @@ public class MainMenu : MonoBehaviour
     {
         // 1
 
-        //if (File.Exists(Application.persistentDataPath + "/saves/gamesave.json"))
-        if (File.Exists("./saves/gamesave.json"))
+        
+         //if (File.Exists("./saves/gamesave.json"))
+        if (File.Exists(Application.persistentDataPath + "/saves/gamesave.json"))
         {
             Player player = new Player();
 
-            //string json = File.ReadAllText(Application.persistentDataPath + "/saves/gamesave.json");
-            string json = File.ReadAllText("./saves/gamesave.json");
+            string json = File.ReadAllText(Application.persistentDataPath + "/saves/gamesave.json");
+            //string json = File.ReadAllText("./saves/gamesave.json");
 
             Save save = JsonUtility.FromJson<Save>(json);
 
@@ -51,5 +53,15 @@ public class MainMenu : MonoBehaviour
         {
             Debug.Log("No game saved!");
         }
+    }
+
+    public void HighScores()
+    {
+        SceneManager.LoadScene("High Scores", LoadSceneMode.Additive);
+    }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene("Main Menu"); 
     }
 }

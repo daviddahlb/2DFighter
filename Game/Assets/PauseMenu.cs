@@ -73,10 +73,10 @@ public class PauseMenu : MonoBehaviour
         Save save = CreateSaveGameObject();
 
         // save as json
-        //Directory.CreateDirectory(Application.dataPath + "/saves/");
-        Directory.CreateDirectory("./saves/");
-        //string path = (Application.dataPath + "/saves/gamesave.json");
-        string path = ("./saves/gamesave.json");
+        Directory.CreateDirectory(Application.persistentDataPath + "/saves/");
+        //Directory.CreateDirectory("./saves/");
+        string path = (Application.persistentDataPath + "/saves/gamesave.json");
+        //string path = ("./saves/gamesave.json");
         string json = JsonUtility.ToJson(save);
 
         StreamWriter sw = File.CreateText(path); // if file doesnt exist, make the file in the specified path

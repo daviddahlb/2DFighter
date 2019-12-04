@@ -12,6 +12,8 @@ public class Attempt : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
     private Rigidbody2D myRigidBody;
 
+    //to access the Animator component tied to Player
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -48,25 +50,44 @@ public class Attempt : MonoBehaviour
     private void getinput()
     {
         direction = Vector2.zero;
+        animator.SetFloat("speed", 0);
 
-        if(Input.GetKey(KeyCode.UpArrow))
+        // MOVE
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             direction += Vector2.up;
+            animator.SetFloat("speed", 1);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             direction += Vector2.down;
+            animator.SetFloat("speed", 1);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction += Vector2.left;
+            animator.SetFloat("speed", 1);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             direction += Vector2.right;
+            animator.SetFloat("speed", 1);
+
+        }
+
+        // ATTACK
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            animator.SetBool("isAttacking", true);
+
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            animator.SetBool("isAttacking", false);
+
         }
 
 

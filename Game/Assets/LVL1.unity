@@ -3305,6 +3305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  health: 0
+  current_level: 
+  play_date: 
   animator: {fileID: 793862090}
 --- !u!212 &793862086
 SpriteRenderer:
@@ -3846,16 +3849,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3482560379574023985, guid: fc33eb929211745009d7c42f6508aa7f,
+  m_Sprite: {fileID: -5230631362329218474, guid: 52df28e84ceb94c41ad9b59c1db07947,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.909091, y: 3}
+  m_Size: {x: 0.62, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1839535577

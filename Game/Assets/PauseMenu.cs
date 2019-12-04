@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour
 {
     bool pauseEnabled = false;
 
-
     private void Start()
     {
         pauseEnabled = false;
